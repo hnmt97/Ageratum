@@ -1,0 +1,23 @@
+<article class="phase1">
+	<div class="introduction">あなたの取引が快適になりますように<br>
+	アゲラタムに登録してお取引スコアをゲットしよう！</div>
+	<div class="buttons">
+		<div class="notes">※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください</div>
+		<div class="button"><%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %></div>
+	</div>
+</article>
+<article class="phase2">
+	<div class="about">
+		<div class="introduction"><span style="text-decoration: underline;">アゲラタムはこんなサービスです。</span></div>
+		<img src="/about1.jpg">
+		<img src="/about2.jpg">
+		<img src="/about3.jpg">
+	</div>	
+</article>
+<article class="phase3">
+	<div class="introduction">さっそくアゲラタムを使ってみる。</div>
+	<div class="buttons">
+		<div class="notes">※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください</div>
+		<div class="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></div>
+	</div>
+</article>

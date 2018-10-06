@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width-device, initial-scale=1.0">
+
+    <title>Ageratum</title>
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrapper">
+        <ul class="headerContents">
+          <li class="appTitle">
+          <% if @current_user %>
+            <%= link_to("アゲラタム　取引信用チェッカー", "/#{@current_user.uid}") %>
+          <% else %>
+            <%= link_to("アゲラタム　取引信用チェッカー", "/") %>
+          <% end %>
+          </li>
+          <li class="usersSearch">
+          <% if @current_user %>
+            <i class="fas fa-search"></i>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="searchForm">
+      <%= form_tag("/search", method: :get) do %>
+        <div class="searchInstruction">どなたをお探しですか？ユーザーIDで検索してみましょう。<br><span style="font-size: 13px">※ユーザーIDはTwitterのIDと同じです。＠マークを抜いて入力してください。</span></div>vi
+        <input class="searchInput" type="text" name="uid">
+        <input class="submitBtn topSearch" type="submit" value="検索">
+      <% end %>
+    </div>
+
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice]%>
+      </div>
+    <% end %>
+
+    <main>
+      <div class="wrapper">
+        
+        <%= yield %>
+
+      </div>
+    </main>
+
+    <% if @current_user %>
+      <span style="font-weight: 600; border-bottom: 2px solid #000000"></span>
+    <% end %>
+
+    <footer>
+    <div class="footerWapper">
+      <div class="wrapper">
+        <div class="footerContent">
+          <ul>
+            <li><%= link_to("アゲラタムの使い方", "/howtouse") %></li>
+            <li><%= link_to("利用規約", "/termsofservice") %></li>
+            <li><%= link_to("プライバシーポリシー", "/privacypolicy") %></li>
+            <li><a href="">公式Twitter</a></li>
+            <li><%= link_to("お問い合わせ", "/contact") %></li>
+          </ul>
+        </div>
+        <div class="copyright">©2018 アゲラタム 取引信用チェッカー</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    $(function(){
+      $('.usersSearch').click(function(){
+        $('.searchForm').show();
+      });
+      $('.submitBtn, .userShow').click(function(){
+        $('.searchForm').hide();
+      });
+
+      setTimeout(function(){
+        $('.notice').slideUp('slow');
+      }, 800);
+    });
+  </script>
+  </body>
+</html>

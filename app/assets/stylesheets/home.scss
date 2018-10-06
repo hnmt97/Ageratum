@@ -1,0 +1,138 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/*****************************
+
+Phase1
+
+******************************/
+
+.phase1{
+	margin: 0 0 40px;
+	padding: 50px 0;
+	width: 100%;
+	background-color: #f0f8ff;
+}
+
+.introduction{
+	font-size: 25px;
+	font-weight: 800;
+	padding: 40px 0;
+	color: #464646;
+}
+
+.notes{
+	margin-bottom: 10px;
+}
+
+.notes a{
+	text-decoration: underline;
+}
+
+.buttons{
+	padding-bottom: 40px;
+}
+
+.button{
+	width: 220px;
+	height: 30px;
+	margin: 10px auto;
+	padding: 5px 7px;
+	border-radius: 7px;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 500;
+	box-shadow: 0 3px #dcdcdc;
+	border: 4px solid #a7d28d;
+	background-color: #a7d28d;
+}
+
+.button a{
+	color: #ffffff;
+}
+
+.button:hover{
+	cursor: pointer;
+}
+
+.button:active{
+	box-shadow: none;
+	opacity: 0.8;
+}
+
+
+/*****************************
+
+Phase2
+
+******************************/
+
+.phase2{
+	margin: 50px 0;
+	width: 100%;
+}
+
+.about img{
+	margin-bottom: 30px;
+}
+
+
+
+/*****************************
+
+Phase3
+
+******************************/
+
+.phase3{
+	margin: 30px 0; 
+	padding: 50px 0;
+	width: 100%;
+	background-color: #f0f8ff;
+}
+
+
+/*****************************
+
+Contact Form
+
+******************************/
+
+.contactForm iframe{
+	margin: 50px 0;
+	width: 100%;
+	height: 950px;
+}
+
+
+/*****************************
+
+responsive
+
+******************************/
+
+@media(max-width: 450px){
+	.introduction{
+		font-size: 18px;
+		padding: 40px 5%;
+	}
+
+	.notes{
+		margin: 0 5% 10px;
+	}
+
+	.phase2{
+		margin: 30px 0;
+	}
+}
+
+
+@media(max-width: 1200px){
+	.phase2 img{
+		width: 100%;
+	}
+}
+
