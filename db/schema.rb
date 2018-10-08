@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_191742) do
+ActiveRecord::Schema.define(version: 2018_10_08_184803) do
 
   create_table "infos", force: :cascade do |t|
     t.string "nickname", null: false
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2018_10_08_191742) do
     t.text "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "contact"
+    t.text "money"
+    t.text "packing"
+    t.text "shipment"
+    t.text "method"
+    t.text "trading"
     t.index ["nickname"], name: "index_infos_on_nickname", unique: true
   end
 
