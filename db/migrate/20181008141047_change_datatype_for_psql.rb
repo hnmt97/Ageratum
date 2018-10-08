@@ -1,4 +1,4 @@
-class UpdateColumnForInfos < ActiveRecord::Migration[5.2]
+class ChangeDatatypeForPsql < ActiveRecord::Migration[5.2]
   def change
   	change_column :infos, :trading, :text, array: true, using: 'trading::text[]'
   	change_column :infos, :method, :text, array: true, using: 'method::text[]'

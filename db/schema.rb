@@ -10,22 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_131302) do
+ActiveRecord::Schema.define(version: 2018_10_08_191742) do
 
   create_table "infos", force: :cascade do |t|
     t.string "nickname", null: false
     t.text "genre"
-    t.text "trading"
-    t.text "method"
-    t.text "contact"
-    t.text "shipment"
-    t.text "packing"
-    t.text "money"
     t.string "history"
     t.text "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "activation"
     t.index ["nickname"], name: "index_infos_on_nickname", unique: true
   end
 
@@ -51,6 +44,17 @@ ActiveRecord::Schema.define(version: 2018_10_08_131302) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tradings", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_tradings_on_nickname", unique: true
   end
 
   create_table "users", force: :cascade do |t|

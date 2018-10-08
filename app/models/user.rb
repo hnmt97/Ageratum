@@ -52,7 +52,7 @@ class User < ApplicationRecord
   end
 
   def info
-    return Info.find_by(nickname: self.nickname)
+    return Trading.find_by(nickname: self.nickname)
   end
 
 
