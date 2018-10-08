@@ -32,6 +32,15 @@ html, body{
 	text-align: center;
 }
 
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
 p{
 	margin: 0;
 	padding: 0;
@@ -48,9 +57,13 @@ a{
 	color: #000000;
 }
 
+textarea{
+	white-space: pre-wrap;
+}
+
 header{
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	background-color: #b2b9ff;
 }
 
@@ -59,22 +72,21 @@ header{
 	margin: 0 auto;
 }
 
-.headerContents{
-	height: 40px;
-}
+/*****************************
 
-.headerContents li{
-	display: flex;
-    align-items: center;
-}
+header
 
-.appTitle{
+******************************/
+
+.appTitle {
 	width: 70%;
-	font-size: 15px;
-	font-weight: 600;
-	height: 40px;
-	float: left;
-	
+    margin: 0 0 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
 
 .appTitle a{	
@@ -82,10 +94,33 @@ header{
 }
 
 .usersSearch{
-	font-size: 18px;
-	height: 40px;
-	float: right;
+	margin-right: 20px;
+    font-size: 18px;
+    height: 50px;
+    width: 30px;   
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    float: right;
 }
+
+.usersSearch:hover{
+	cursor: pointer;
+}
+
+/*****************************
+
+introduction
+
+******************************/
+
+.introduction{
+	font-size: 25px;
+	font-weight: 800;
+	padding: 40px 0;
+	color: #464646;
+}
+
 
 
 /*****************************
@@ -106,6 +141,201 @@ notice
     padding: 10px 0;
 }
 
+/*****************************
+
+shareMessage
+
+******************************/
+
+.messageShow{
+	border: 2px solid #dcdcdc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 0px 5px #a9a9a9;
+    width: 70%;
+    margin: 0 auto;
+    border-top: none;
+    padding: 20px 0 40px;
+}
+
+.shareTitle{
+	font-size: 18px;
+	font-weight: 500;
+}
+
+
+
+
+
+/*****************************
+
+form
+
+******************************/
+
+.form{
+	width: 100%;
+	margin: 40px 0 100px;
+}
+
+.form h2{
+	border-bottom: 10px solid #b0c4de;
+    padding: 40px 0 10px;
+    margin: 0 auto 30px;
+    width: 50%;
+}
+
+.formItem{
+	padding: 10px 0;
+    margin: 10px 0;
+}
+
+.formItem h3{
+	margin-bottom: 10px;
+}
+
+.formItemContent{
+	padding: 20px 0;
+	white-space: nowrap;
+	overflow-x: scroll;
+	-ms-overflow-style: none;
+}
+
+.formItemContent::-webkit-scrollbar{
+	display: none;
+}
+
+.userInfoForm label{
+	border: 3px solid #25b7c0;
+	border-radius: 10px;
+	margin: 5px 7px;
+	padding: 5px 7px;
+	box-shadow: 0 3px #dcdcdc;
+}
+
+.newReviewForm label{
+	border: 3px solid #8d93c8;
+	border-radius: 10px;
+	margin: 5px 7px;
+	padding: 5px 7px;
+	box-shadow: 0 3px #dcdcdc;
+}
+
+label:hover{
+	cursor: pointer;
+}
+
+label:active{
+	box-shadow: none;
+}
+
+.form textarea{
+	width: 400px;
+	height: 200px;
+	border: 2px solid #dcdcdc;
+	border-radius: 5px;
+	resize: none;
+}
+
+select{
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	width: 300px;
+	height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+input[type=radio], input[type=checkbox] {
+ 	display: none;
+}
+
+input[type="checkbox"]:checked + label {
+	color: #ffffff;
+	background: #25b7c0;
+	box-shadow: none;
+}
+
+input[type="radio"]:checked + label {
+	color: #ffffff;
+	background: #8d93c8;
+	box-shadow: none;
+}
+
+
+.buttons{
+	padding-bottom: 40px;
+}
+
+.button{
+	width: 220px;
+	height: 30px;
+	margin: 10px auto;
+	padding: 5px 7px;
+	border-radius: 7px;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 500;
+	box-shadow: 0 3px #dcdcdc;
+	border: 4px solid #a7d28d;
+	background-color: #a7d28d;
+}
+
+.button a{
+	color: #ffffff;
+}
+
+.button:hover{
+	cursor: pointer;
+}
+
+.button:active{
+	box-shadow: none;
+	opacity: 0.8;
+}
+
+.submitBtn{
+	display: block;
+	margin: 10px auto;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 600;
+	padding: 2px 7px;
+	background-color: #5f9ea0;
+	border: 2px solid #5f9ea0;
+	border-radius: 5px;
+}
+
+
+.form .resetBtn{
+	display: inline-block;
+	width: 100px;
+	margin-left: 7px;
+	border: 4px solid #a9a9a9;
+	background-color: #a9a9a9;
+}
+
+.form .submitBtn{
+	display: inline-block;
+	font-weight: 500;
+	padding: 0;
+	width: 122px;
+	height: 48px;
+}
+
+.shareBtn{
+	border: 4px solid #1b95e0;
+	background-color: #1b95e0;
+}
+
+.closeBtn{
+	font-size: 16px;
+	width: 60px;
+	height: 20px;
+	border: 4px solid #a9a9a9;
+	background-color: #a9a9a9;
+}
+
 
 /*****************************
 
@@ -121,12 +351,13 @@ Search Form
     width: 70%;
     margin: 0 auto;
     border-top: none;
-    padding: 20px 0;
+    padding: 20px 0 40px;
 }
 
 .searchInstruction{
 	font-size: 18px;
 	margin: 5px 0;
+	padding: 20px 0 40px;
 }
 
 .searchInput{
@@ -135,9 +366,11 @@ Search Form
 	border-radius: 5px;
 }
 
-.topSearch{
+.searchBtn{
 	display: inline-block;
 	font-size: 18px;
+	width: initial;
+	height: initial;
 }
 
 
@@ -177,24 +410,75 @@ responsive
 	}
 
 	.headerContents{
-		margin: 0 10%;
+		margin: 0 5%;
 	}
 
 	.appTitle{
-		width: 90%;
+		width: 80%;
 		font-size: 13px;
+		margin-left: 0;
+	}
+
+	.usersSearch{
+		margin-right: 0;
+	}
+
+	.introduction{
+		font-size: 18px;
+		padding: 40px 5%;
 	}
 
 	.notice{
-	font-size: 15px;
-    width: 90%;
+		font-size: 15px;
+    	width: 90%;
 	}
 
 	.searchForm{
 	    width: 90%;
 	}
 
+	.searchBtn{
+		display: block;
+	}
+
 	.footerContent li{
 		display: block;
 	}
+
+/*****************************
+
+form
+
+******************************/
+	.form{
+		margin: 20px 0 100px;
+	}
+
+	.form h2{
+		width: 80%;
+	}
+
+	.formItemContent{
+		padding: 10px 10%;
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	.userInfoForm label, .newReviewForm label{
+		display: block;
+		margin: 7px 0;
+		white-space: normal;
+	}
+
+	.form textarea{
+		margin-left: -10%; 
+		width: 120%;
+		height: 200px;
+	}
+
+	select{
+		width: 120%;
+	 	margin-left: -10%;
+	}
+
 }

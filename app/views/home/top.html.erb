@@ -1,23 +1,53 @@
+
 <article class="phase1">
-	<div class="introduction">あなたの取引が快適になりますように<br>
-	アゲラタムに登録してお取引スコアをゲットしよう！</div>
+	<h2 class="introduction">あなたに快適なお取引を・・・<br>アゲラタムで楽しい取引ライフをはじめよう！</h2>
 	<div class="buttons">
-		<div class="notes">※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください</div>
-		<div class="button"><%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %></div>
+		<% if @current_user %>
+			<div class="notes">
+				※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください。<br>
+				<span style="color: #ff6347">すでにログインしています。プロフィール画面にアクセスしますか？</span>
+			</div>
+			<div class="button"><%= link_to("プロフィール画面へ", "/#{@current_user.nickname}")  %></div>
+		<% else %>
+			<div class="notes">
+				※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください。<br>
+			</div>
+			<div class="button"><%= link_to 'Twitterでログイン', user_twitter_omniauth_authorize_path %></div>
+		<% end %>
 	</div>
 </article>
+
+<!-- 何かお知らせ -->
+<% if !$news.empty? %>
+    <div class="news">
+    	<h3>お知らせ</h3>
+        <p><%= $news %></p>
+    </div>
+<% end %>
+
 <article class="phase2">
 	<div class="about">
-		<div class="introduction"><span style="text-decoration: underline;">アゲラタムはこんなサービスです。</span></div>
+		<h2 class="introduction"><span style="text-decoration: underline;">アゲラタムはこんなサービスです。</span></h2>
 		<img src="/about1.jpg">
 		<img src="/about2.jpg">
 		<img src="/about3.jpg">
 	</div>	
 </article>
+
 <article class="phase3">
-	<div class="introduction">さっそくアゲラタムを使ってみる。</div>
+	<h2 class="introduction">さっそくアゲラタムを使ってみる。</h2>
 	<div class="buttons">
-		<div class="notes">※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください</div>
-		<div class="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></div>
+		<% if @current_user %>
+			<div class="notes">
+				※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください。<br>
+				<span style="color: #ff6347">すでにログインしています。プロフィール画面にアクセスしますか？</span>
+			</div>
+			<div class="button"><%= link_to("プロフィール画面へ", "/#{@current_user.nickname}")  %></div>
+		<% else %>
+			<div class="notes">
+				※<%= link_to("利用規約", "/termsofservice") %>および<%= link_to("プライバシーポリシー", "/privacypolicy") %>に同意の上ご利用ください。<br>
+			</div>
+			<div class="button"><%= link_to 'Twitterでログイン', user_twitter_omniauth_authorize_path %></div>
+		<% end %>
 	</div>
 </article>

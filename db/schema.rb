@@ -10,7 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_004843) do
+ActiveRecord::Schema.define(version: 2018_10_08_050407) do
+
+  create_table "infos", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.text "genre"
+    t.text "trading"
+    t.text "method"
+    t.text "contact"
+    t.text "shipment"
+    t.text "packing"
+    t.text "money"
+    t.string "history"
+    t.text "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "activation"
+    t.index ["nickname"], name: "index_infos_on_nickname", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "sender", null: false
+    t.string "receiver", null: false
+    t.string "trading"
+    t.string "method"
+    t.string "contact"
+    t.string "shipment"
+    t.string "packing"
+    t.string "money"
+    t.text "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver"], name: "index_posts_on_receiver"
+    t.index ["sender"], name: "index_posts_on_sender"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "nickname"
+    t.integer "score"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", null: false

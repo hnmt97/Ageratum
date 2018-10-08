@@ -1,0 +1,225 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.userShow{
+	margin: 50px 15% 30px;
+	padding: 20px 10px;
+	border: 2px solid #dcdcdc;
+	border-radius: 7px;
+
+}
+
+/*****************************
+
+User Profile
+
+******************************/
+
+.userImage{
+	position: relative;
+	margin: 0 auto;
+	width: 48px;
+	height: 48px;
+	overflow: hidden;
+	border-radius: 50px;
+}
+
+.userImage img{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+ 	transform: translate(-50%, -50%);
+}
+
+.userName{
+	margin: 5px 0 0;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.userId{
+	margin-bottom: 5px;
+	color: #a9a9a9;
+}
+
+.userScore{
+	font-size: 14px;
+	font-weight: 550;
+	border: 3px solid #5f9ea0;
+	border-radius: 5px; 
+	padding: 3px 5px;
+}
+
+.linkBars li{
+	display: inline-block;
+	margin: 10px 7px;
+	font-size: 22px;
+	font-weight: 600;
+	color: #dcdcdc;
+}
+
+.userTwitter{
+	
+}
+
+.userMenu{
+	margin-bottom: 50px;
+}
+
+
+
+
+/*****************************
+
+User Content
+
+******************************/
+
+.userContent{
+	margin-top: 40px; 
+}
+
+.tab{
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 550;
+	height: 20px;
+	padding: 5px 7px;
+	vertical-align: bottom;
+}
+
+.tab a{
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #dcdcdc;
+}
+
+.active a{
+	color: #000000;
+	font-size: 22px;
+}
+
+
+.tabContent{
+	overflow-y: scroll;
+	-ms-overflow-style: none;
+	height: 800px;
+	padding: 15px 30px;
+	border-top: 3px solid #000000;
+}
+
+.tabContent::-webkit-scrollbar{
+	display: none;
+}
+
+.content{
+	margin: 10px 0;
+	padding-bottom: 5px;
+	text-align: left;
+	border-bottom: 1px solid #a9a9a9;
+}
+
+.reviewName{
+	font-size: 15px;
+}
+
+.reviewDate{
+	font-size: 10px;
+}
+
+.reviewContent{
+	padding: 5px 0;
+}
+
+.profileContent .content {
+	border-bottom: none;
+}
+
+.profileContentItem{
+	margin: 10px 0 20px;
+}
+
+
+
+/*****************************
+
+review page
+
+******************************/
+
+.reviewBtn{
+	position: fixed;
+	bottom: 5%;
+	right: 5%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	font-size: 30px;	
+	background-color: #b2b9ff;
+	border: 2px solid #b2b9ff;
+	box-shadow: 0 0 14px 2px #dcdcdc;
+}
+
+.reviewBtn i{
+	width: 50px;
+	height: 50px;
+	color: #ffffff;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*****************************
+
+pageShare
+
+******************************/
+
+.shareUserPage{
+	margin-bottom: 50px;
+}
+
+
+
+/*****************************
+
+responsive
+
+******************************/
+
+@media(max-width: 750px){
+	.tab{
+		font-size: 14px;
+		width: 40%;
+	}
+
+	.active a{
+		font-size: 16px;
+	}
+}
+
+@media(max-width: 600px){
+	.tab{
+		font-size: 10px;
+	}
+
+	.active a{
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 450px){
+	.userShow{
+		margin: 50px 5%;
+	}
+
+}
+

@@ -1,0 +1,60 @@
+<div class="userShow">
+	<article class="userProfile">
+		<div class="userImage"><img src="<%= @user.image %>"></div>
+		<div class="userName"><%= @user.name %></div>
+		<div class="userId">@<%= @user.nickname %></div>
+		<ul class="linkBars">
+			<li class="userTwitter"><%= link_to("https://twitter.com/#{@user.nickname}") do %><i class="fab fa-twitter"></i><% end %></li>		
+			<% if @user.nickname == @current_user.nickname %>
+				<li class="editProfile"><%= link_to("/#{@user.nickname}/edit") do %><i class="fa fa-cog"></i><% end %></li>
+			<% end %>
+		</ul>
+		
+		<div class="userScore">アゲラタムスコア: <%= @total %> pt</div>
+	</article>
+	<article class="userContent">
+		<ul class="userTabs">
+			<li class="tab active"><%= link_to("プロフィール", "/#{@user.nickname}") %></li>
+			<li class="tab"><%= link_to("ログ", "/#{@user.nickname}/log") %></li>
+			<li class="tab"><%= link_to("受信Box", "/#{@user.nickname}/inbox") %></li>
+			<li class="tab"><%= link_to("送信Box", "/#{@user.nickname}/outbox") %></li>
+		</ul>
+		<div class="tabContent profileContent">
+			<% if @info.nil? %>
+				<div class="contentMessage">まだお取引プロフィールがありません。</div>
+			<% else %>
+					<div class="content">
+						<ul class="reviewContent">
+							<li class="profileContentItem"><h3>主に取引をしている作品・ジャンル</h3><p><%= simple_format(@info.genre) %></p></li>
+							<li class="profileContentItem"><h3>現在の取引状況</h3><p><% @info.activation.each do |activation| %><%= activation %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>取引の種類</h3><p><% @info.trading.each do |trading| %><%= trading %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>取引の方法</h3><p><% @info.method.each do |method| %><%= method %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>連絡</h3><p><% @info.contact.each do |contact| %><%= contact %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>取引までの日数</h3><p><% @info.shipment.each do |shipment| %><%= shipment %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>梱包</h3><p><% @info.packing.each do |packing| %><%= packing %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>金銭のやり取り</h3><p><% @info.money.each do |money| %><%= money %>&emsp;<% end %></p></li>
+							<li class="profileContentItem"><h3>過去の取引実績</h3><p><%= @info.history %></p></li>
+							<li class="profileContentItem"><h3>フリースペース</h3><p><%= simple_format(@info.other) %></p></li>
+						</ul>
+					</div>
+			<% end %>
+		</div>
+	</article>
+</div>
+<div class="userMenu">
+		<% if @user.nickname != @current_user.nickname %>
+			<%= link_to("このユーザーを報告する", "/contact") %>
+		<% end %>
+</div>
+<div class="shareUserPage">
+	<div class="shareTitle">Twitterでこのページをシェアする。</div>
+	<a href="https://ageratum-reliability-checker.herokuapp.com/#{@user.nickname}" class="twitter-share-button" data-text="<%= @user.name %>さんのページ｜アゲラタム取引信用チェッカー" data-via="ageratum891003" data-hashtags="アゲラタム #アゲラタム取引信用チェッカー" data-lang="ja" data-show-count="false" data-size="large"></a>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<% if @user.nickname != @current_user.nickname %>
+	<div class="reviewBtn">
+		<%= link_to("/#{@user.nickname}/newreview") do %>
+			<i class="fas fa-pen"></i>
+		<% end %>
+	</div>
+<% end %>

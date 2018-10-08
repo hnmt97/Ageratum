@@ -1,0 +1,92 @@
+<article class="form newReviewForm">
+	<h2 class="introduction reviewIntroduction"><%= @user.name %>さんにレビューを送りましょう。</h2>
+	<div class="formContent">
+		<%= form_tag("/#{@user.nickname}/create") do %>
+		<input class="receiver" type="hidden" name="receiver" value="<%= @user.nickname %>">
+		<div class="formItem trading">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 取引の種類</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="trading" value="交換" id="tra1">
+				<label for="tra1">交換</label>
+				<input type="radio" name="trading" value="買取" id="tra2">
+				<label for="tra2">買取</label>
+				<input type="radio" name="trading" value="譲渡" id="tra3">
+				<label for="tra3">譲渡</label>
+				<input type="radio" name="trading" value="その他" id="tra4">
+				<label for="tra4">その他</label>
+			</div>
+		</div>
+		<div class="formItem method">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 取引の方法</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="method" value="郵送" id="met1">
+				<label for="met1">郵送</label>
+				<input type="radio" name="method" value="手渡し" id="met2">
+				<label for="met2">手渡し</label>
+				<input type="radio" name="method" value="その他" id="met3">
+				<label for="met3">その他</label>
+			</div>
+		</div>
+		<div class="formItem contact">
+		<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 連絡</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="contact" value="丁寧で礼儀正しかった・素早い返信だった・こまめに連絡をくれた" id="con1">
+				<label for="con1">丁寧で礼儀正しかった・素早い返信だった・こまめに連絡をくれた</label>
+				<input type="radio" name="contact" value="普通" id="con2">
+				<label for="con2">普通</label>
+				<input type="radio" name="contact" value="あまり礼儀正しくなかった・返信が遅かった・連絡が少なかった" id="con3">
+				<label for="con3">あまり礼儀正しくなかった・返信が遅かった・連絡が少なかった</label>
+				<input type="radio" name="contact" value="その他" id="con4">
+				<label for="con4">その他</label>
+			</div>
+		</div>
+		<div class="formItem shipment">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 発送・手渡し</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="shipment" value="とても早い対応だった" id="shi1">
+				<label for="shi1">とても早い対応だった</label>
+				<input type="radio" name="shipment" value="普通" id="shi2">
+				<label for="shi2">普通</label>
+				<input type="radio" name="shipment" value="時間がかかった" id="shi3">
+				<label for="shi3">時間がかかった</label>
+				<input type="radio" name="shipment" value="その他" id="shi4">
+				<label for="shi4">その他</label>
+			</div>
+		</div>
+		<div class="formItem packing">
+		<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 梱包</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="packing" value="とてもしっかりしていた" id="pac1">
+				<label for="pac1">とてもしっかりしていた</label>
+				<input type="radio" name="packing" value="普通" id="pac2">
+				<label for="pac2">普通</label>
+				<input type="radio" name="packing" value="あまりしっかりしていなかった" id="pac3">
+				<label for="pac3">あまりしっかりしていなかった</label>
+				<input type="radio" name="packing" value="その他" id="pac4">
+				<label for="pac4">その他</label>
+			</div>
+		</div>
+		<div class="formItem money">
+			<h3 lass="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 金銭のやり取り</span></h3>
+			<div class="formItemContent">
+				<input type="radio" name="money" value="手渡し" id="mon1">
+				<label for="mon1">手渡し</label>
+				<input type="radio" name="money" value="銀行振込" id="mon2">
+				<label for="mon2">銀行振込</label>
+				<input type="radio" name="money" value="なし" id="mon3">
+				<label for="mon3">なし</label>
+				<input type="radio" name="money" value="その他" id="mon4">
+				<label for="mon4">その他</label>
+			</div>
+		</div>
+		<div class="formItem other">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> コメント・レビュー</span></h3>
+			<div class="formItemContent">
+				<textarea name="other" placeholder="300字以内でお書きください。"></textarea>
+			</div>
+		</div>
+		<input class="button submitBtn" type="submit" value="送信">
+		<div class="button resetBtn"><%= link_to("キャンセル", "/#{@user.nickname}") %></div>
+		<% end %>
+	</div>
+</article>

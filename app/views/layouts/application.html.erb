@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <meta charset="utf-8">
+
+    <title>アゲラタム取引信用チェッカー</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device, initial-scale=1.0">
 
-    <title>Ageratum</title>
+    <!-- メタ情報　for twitterシェア　要改良 -->
+    <meta property="og:url" content="https://ageratum-reliability-checker.herokuapp.com/">
+    <meta property="og:title" content="アゲラタム取引信用チェッカー">
+    <meta property="og:description" content="あなたに快適なお取引を・・・　アゲラタムで楽しいお取引ライフをはじめよう！">
+    <meta property="og:image" content="/ageratum_icon.jpg"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ageratum891003">
+   
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,35 +27,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </head>
 
   <body>
     <header>
       <div class="wrapper">
-        <ul class="headerContents">
-          <li class="appTitle">
-          <% if @current_user %>
-            <%= link_to("アゲラタム　取引信用チェッカー", "/#{@current_user.uid}") %>
-          <% else %>
-            <%= link_to("アゲラタム　取引信用チェッカー", "/") %>
-          <% end %>
-          </li>
-          <li class="usersSearch">
+        <div class="headerContents">
+          <div class="usersSearch">
           <% if @current_user %>
             <i class="fas fa-search"></i>
           <% end %>
-          </li>
-        </ul>
+          </div>
+          <h1 class="appTitle">
+          <% if @current_user %>
+            <%= link_to("アゲラタム　取引信用チェッカー", "/#{@current_user.nickname}") %>
+          <% else %>
+            <%= link_to("アゲラタム　取引信用チェッカー", "/") %>
+          <% end %>
+          </h1>
+        </div>
       </div>
     </header>
 
+
+    <!-- SearchFrom 要改良 -->
     <div class="searchForm">
       <%= form_tag("/search", method: :get) do %>
-        <div class="searchInstruction">どなたをお探しですか？ユーザーIDで検索してみましょう。<br><span style="font-size: 13px">※ユーザーIDはTwitterのIDと同じです。＠マークを抜いて入力してください。</span></div>vi
-        <input class="searchInput" type="text" name="uid">
-        <input class="submitBtn topSearch" type="submit" value="検索">
+        <div class="introduction searchInstruction">どなたをお探しですか？ユーザーIDで検索してみましょう。<br><span style="font-size: 13px">※ユーザーIDはTwitterのIDと同じです。＠マークを抜いて入力してください。</span></div>
+        <input class="searchInput" type="text" name="nickname">
+        <input class="button submitBtn searchBtn" type="submit" value="検索">
       <% end %>
     </div>
+
 
     <% if flash[:notice] %>
       <div class="notice">
@@ -51,6 +68,29 @@
       </div>
     <% end %>
 
+
+    <!-- Twitterシェア　要改良 -->
+    <% if flash[:shareMessage] %>
+      <div class="messageShow">
+        <% case $messagenumber %>
+          <% when 1 %>
+            <div class="introduction"><%= flash[:shareMessage] %></div>
+            <div class="shareTitle">Tweetでシェアする。</div>
+            <a href="https://ageratum-reliability-checker.herokuapp.com/" class="twitter-share-button" data-text="アゲラタム取引信用チェッカーに登録しました！あなたもアゲラタムに登録してみませんか？" data-via="ageratum891003" data-hashtags="アゲラタム #アゲラタム取引信用チェッカー" data-lang="ja" data-show-count="false" data-size="large"></a>
+          <% when 2 %>
+            <div class="introduction"><%= flash[:shareMessage] %></div>
+            <div class="shareTitle">Tweetでシェアする。</div>
+            <a href="https://ageratum-reliability-checker.herokuapp.com/#{@current_user.nickname}" class="twitter-share-button" data-text="アゲラタム取引信用チェッカーでお取引プロフィールを更新しました！チェックしてみてください。" data-via="ageratum891003" data-hashtags="アゲラタム #アゲラタム取引信用チェッカー" data-lang="ja" data-show-count="false" data-size="large"></a>
+          <% when 3 %>
+          　<div class="introduction"><%= flash[:shareMessage] %></div>
+            <div class="shareTitle">Tweetでシェアする。</div>
+            <!--<div class="button TwitterBtn"><a href="https://twitter.com/share?url=/#{@user.nickname}&via=ageratum891003&hashtags=アゲラタム,アゲラタム取引信用チェッカー&text=アゲラタム取引信用チェッカーで<%= @user.name %>さんあてにレビューを書きました！お取引ありがとうございました。" rel="nofollow" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></div>-->
+            <a href="https://ageratum-reliability-checker.herokuapp.com/#{@user.nickname}/inbox" class="twitter-share-button" data-text="" data-via="ageratum891003" data-hashtags="アゲラタム #アゲラタム取引信用チェッカー" data-lang="ja" data-show-count="false" data-size="large"></a>
+        <% end %>
+        <div class="button closeBtn">閉じる</div>
+      </div>
+    <% end %>
+    
     <main>
       <div class="wrapper">
         
@@ -60,24 +100,23 @@
     </main>
 
     <% if @current_user %>
-      <span style="font-weight: 600; border-bottom: 2px solid #000000"></span>
+      <span style="font-weight: 600; border-bottom: 2px solid #000000"><%= link_to("ログアウト", "/logout", method: :post) %></span>
     <% end %>
 
     <footer>
-    <div class="footerWapper">
       <div class="wrapper">
         <div class="footerContent">
           <ul>
             <li><%= link_to("アゲラタムの使い方", "/howtouse") %></li>
             <li><%= link_to("利用規約", "/termsofservice") %></li>
             <li><%= link_to("プライバシーポリシー", "/privacypolicy") %></li>
-            <li><a href="">公式Twitter</a></li>
+            <li><a href="https://twitter.com/ageratum891003">公式Twitter</a></li>
+            <!-- お問い合わせフォーム　検討中 -->
             <li><%= link_to("お問い合わせ", "/contact") %></li>
           </ul>
         </div>
         <div class="copyright">©2018 アゲラタム 取引信用チェッカー</div>
       </div>
-    </div>
   </footer>
 
   <script type="text/javascript">
@@ -85,8 +124,12 @@
       $('.usersSearch').click(function(){
         $('.searchForm').show();
       });
-      $('.submitBtn, .userShow').click(function(){
+      $('.submitBtn, main').click(function(){
         $('.searchForm').hide();
+      });
+
+      $('.closeBtn, main').click(function(){
+        $('.messageShow').hide();
       });
 
       setTimeout(function(){

@@ -1,0 +1,51 @@
+<div class="userShow">
+	<article class="userProfile">
+		<div class="userImage"><img src="<%= @user.image %>"></div>
+		<div class="userName"><%= @user.name %></div>
+		<div class="userId">@<%= @user.nickname %></div>
+		<ul class="linkBars">
+			<li class="userTwitter"><%= link_to("https://twitter.com/#{@user.nickname}") do %><i class="fab fa-twitter"></i><% end %></li>		
+			<% if @user.nickname == @current_user.nickname %>
+				<li class="editProfile"><%= link_to("/#{@user.nickname}/edit") do %><i class="fa fa-cog"></i><% end %></li>
+			<% end %>
+		</ul>
+		<div class="userScore">アゲラタムスコア: <%= @total %> pt</div>
+	</article>
+	<article class="userContent">
+		<ul class="userTabs">
+			<li class="tab"><%= link_to("プロフィール", "/#{@user.nickname}") %></li>
+			<li class="tab active"><%= link_to("ログ", "/#{@user.nickname}/log") %></li>
+			<li class="tab"><%= link_to("受信Box", "/#{@user.nickname}/inbox") %></li>
+			<li class="tab"><%= link_to("送信Box", "/#{@user.nickname}/outbox") %></li>
+		</ul>
+		<div class="tabContent">
+			<% if @histories.empty? %>
+				<div class="contentMessage">まだログがありません。</div>
+			<% else %>
+				<% @histories.each do |history| %>
+					<div class="content">
+						<p><%= history.created_at.strftime("%Y年%-m月%-d日") %></p>
+						<p><%= simple_format(history.comment) %></p>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</article>
+</div>
+<div class="userMenu">
+		<% if @user.nickname != @current_user.nickname %>
+			<%= link_to("このユーザーを報告する", "/contact") %>
+		<% end %>
+</div>
+<div class="shareUserPage">
+	<div class="shareTitle">Twitterでこのページをシェアする。</div>
+	<a href="https://ageratum-reliability-checker.herokuapp.com/#{@user.nickname}" class="twitter-share-button" data-text="<%= @user.name %>さんのページ｜アゲラタム取引信用チェッカー" data-via="ageratum891003" data-hashtags="アゲラタム #アゲラタム取引信用チェッカー" data-lang="ja" data-show-count="false" data-size="large"></a>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<% if @user.nickname != @current_user.nickname %>
+	<div class="reviewBtn">
+		<%= link_to("/#{@user.nickname}/newreview") do %>
+			<i class="fas fa-pen"></i>
+		<% end %>
+	</div>
+<% end %>
