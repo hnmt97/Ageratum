@@ -12,6 +12,13 @@ class UsersController < ApplicationController
   def show
   	@user = User.find_by(nickname: params[:nickname])
     @info = @user.info
+    @tra = @user.tra
+    @act = @user.act
+    @mon = @user.mon
+    @mea = @user.mea
+    @shi = @user.shi
+    @pac = @user.pac
+    @con = @user.con
 
     set_user_total
   end

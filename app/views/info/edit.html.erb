@@ -2,22 +2,149 @@
 	<h2 class="introduction userInfoIntroduction">取引プロフィール編集画面</h2>
 	<div class="formContent">
 		<%= form_tag("/#{@current_user.nickname}/update") do %>
+		<div class="formItem genre">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 主に取引をする作品・ジャンル</span></h3>
+			<div class="formItemContent">
+				<textarea name="genre" wrap="hard" placeholder="100字以内でお書きください。"><% if @info %><%= @info.genre %><% end %></textarea>
+			</div>
+		</div>
 		
+		<div class="formItem activation">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 現在の取引状況</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="aval1" value="取引相手募集中"  id="act1">
+				<label for="act1">取引相手募集中</label>			
+				<input type="checkbox" name="aval2" value="ただいま取引はしていません" id="act2">
+				<label for="act2">ただいま取引はしていません</label>
+				<input type="checkbox" name="aval3" value="現在忙しいです" id="act3">
+				<label for="act3">現在忙しいです</label>
+				<input type="checkbox" name="aval4" value="即時対応可能です" id="act4">
+				<label for="act4">即時対応可能です</label>
+				<input type="checkbox" name="aval5" value="その他" id="act5">
+				<label for="act5">その他</label>
+			</div>
+		</div>
+
 		<div class="formItem trading">
 			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 取引の種類</span></h3>
 			<div class="formItemContent">
-				<input type="checkbox" name="val1" value="交換"  id="tra1">
+				<input type="checkbox" name="tval1" value="交換"  id="tra1">
 				<label for="tra1">交換</label>
-				<input type="checkbox" name="val2" value="買取" id="tra2">
+				<input type="checkbox" name="tval2" value="買取" id="tra2">
 				<label for="tra2">買取</label>
-				<input type="checkbox" name="val3" value="譲渡" id="tra3">
+				<input type="checkbox" name="tval3" value="譲渡" id="tra3">
 				<label for="tra3">譲渡</label>
-				<input type="checkbox" name="val4" value="その他" id="tra4">
+				<input type="checkbox" name="tval4" value="その他" id="tra4">
 				<label for="tra4">その他</label>
 			</div>
-	
+		</div>
+
+		<div class="formItem mean">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 取引の方法</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="mval1" value="郵送" id="met1">
+				<label for="met1">郵送</label>
+				<input type="checkbox" name="mval2" value="手渡し" id="met2">
+				<label for="met2">手渡し</label>
+				<input type="checkbox" name="mval3" value="その他" id="met3">
+				<label for="met3">その他</label>
+			</div>
+		</div>
+
+		<div class="formItem contact">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 連絡</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="cval1" value="24時間以内に返信" id="con1">
+				<label for="con1">24時間以内に返信</label>
+				<input type="checkbox" name="cval2" value="3日以内に返信" id="con2">
+				<label for="con2">3日以内に返信</label>
+				<input type="checkbox" name="cval3" value="1週間以内に返信" id="con3">
+				<label for="con3">1週間以内に返信</label>
+				<input type="checkbox" name="cval4" value="その他" id="con4">
+				<label for="con4">その他</label>
+			</div>
+		</div>
+
+		<div class="formItem shipment">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 発送・手渡し</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="sval1" value="同日配送希望" id="shi6">
+				<label for="shi6">同日発送希望</label>
+				<input type="checkbox" name="sval2" value="即日対応可" id="shi1">
+				<label for="shi1">即日対応可</label>
+				<input type="checkbox" name="sval3" value="3日以内" id="shi2">
+				<label for="shi2">3日以内</label>
+				<input type="checkbox" name="sval4" value="1週間以内" id="shi3">
+				<label for="shi3">1週間以内</label>
+				<input type="checkbox" name="sval5" value="2週間以内" id="shi4">
+				<label for="shi4">2週間以内</label>
+				<input type="checkbox" name="sval6" value="その他" id="shi5">
+				<label for="shi5">その他</label>
+			</div>
+		</div>
+
+		<div class="formItem packing">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 梱包</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="pval1" value="封筒を使用" id="pac1">
+				<label for="pac1">封筒を使用</label>
+				<input type="checkbox" name="pval2" value="小さめの段ボールを使用" id="pac2">
+				<label for="pac2">小さめの段ボールを使用</label>
+				<input type="checkbox" name="pval3" value="大きめの段ボールを使用" id="pac3">
+				<label for="pac3">大きめの段ボールを使用</label>
+				<input type="checkbox" name="pval4" value="厚紙・緩衝材等を使用" id="pac4">
+				<label for="pac4">厚紙・緩衝材等を使用</label>
+				<input type="checkbox" name="pval5" value="中が見えるように透明な袋を使用" id="pac5">
+				<label for="pac5">中が見えるように透明な袋を使用</label>
+				<input type="checkbox" name="pval6" value="その他" id="pac6">
+				<label for="pac6">その他</label>
+			</div>
+		</div>
+
+		<div class="formItem money">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 金銭のやり取り</span></h3>
+			<div class="formItemContent">
+				<input type="checkbox" name="moval1" value="手渡し" id="mon1">
+				<label for="mon1">手渡し</label>
+				<input type="checkbox" name="moval2" value="銀行振込" id="mon2">
+				<label for="mon2">銀行振込</label>
+				<input type="checkbox" name="moval3" value="前払い可" id="mon3">
+				<label for="mon3">前払い可</label>
+				<input type="checkbox" name="moval4" value="後払い希望" id="mon4">
+				<label for="mon4">後払い希望</label>
+				<input type="checkbox" name="moval5" value="送料いただきます" id="mon5">
+				<label for="mon5">送料いただきます</label>
+				<input type="checkbox" name="moval6" value="定価でお譲り" id="mon6">
+				<label for="mon6">定価でお譲り</label>
+				<input type="checkbox" name="moval7" value="金銭のやり取りはしない" id="mon7">
+				<label for="mon7">金銭のやり取りはしない</label>
+				<input type="checkbox" name="moval8" value="その他" id="mon8">
+				<label for="mon8">その他</label>
+			</div>
 		</div>
 		
+		<div class="formItem history">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> 過去の取引実績</span></h3>
+			<div class="formItemContent">
+				<select name="history">
+					<option ></option>
+					<option value="まだ取引をしたことがない">まだ取引をしたことがない</option>
+					<option value="10件以下">10件以下</option>
+					<option value="50件以下">50件以下</option>
+					<option value="100件以下">100件以下</option>
+					<option value="500件以下">500件以下</option>
+					<option value="500件以上">500件以上</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="formItem other">
+			<h3 class="formItemTitle"><span style="border-bottom: 1px solid #000000"><i class="fas fa-check"></i> フリースペース</span></h3>
+			<div class="formItemContent">
+				<textarea name="other" wrap="hard" placeholder="250字以内でお書きください。"><% if @info %><%= @info.other %><% end %></textarea>
+			</div>
+		</div>
+
 		<input class="button submitBtn" type="submit" value="保存">
 		<div class="button resetBtn"><%= link_to("キャンセル", "/#{current_user.nickname}") %></div>
 		<% end %>

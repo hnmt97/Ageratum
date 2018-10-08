@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_184803) do
+ActiveRecord::Schema.define(version: 2018_10_08_203752) do
+
+  create_table "activations", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.string "val5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_activations_on_nickname", unique: true
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_contacts_on_nickname", unique: true
+  end
 
   create_table "infos", force: :cascade do |t|
     t.string "nickname", null: false
@@ -19,13 +42,45 @@ ActiveRecord::Schema.define(version: 2018_10_08_184803) do
     t.text "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "contact"
-    t.text "money"
-    t.text "packing"
-    t.text "shipment"
-    t.text "method"
-    t.text "trading"
     t.index ["nickname"], name: "index_infos_on_nickname", unique: true
+  end
+
+  create_table "means", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_means_on_nickname", unique: true
+  end
+
+  create_table "money", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.string "val5"
+    t.string "val6"
+    t.string "val7"
+    t.string "val8"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_money_on_nickname", unique: true
+  end
+
+  create_table "packings", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.string "val5"
+    t.string "val6"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_packings_on_nickname", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
@@ -50,6 +105,19 @@ ActiveRecord::Schema.define(version: 2018_10_08_184803) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "val1"
+    t.string "val2"
+    t.string "val3"
+    t.string "val4"
+    t.string "val5"
+    t.string "val6"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_shipments_on_nickname", unique: true
   end
 
   create_table "tradings", force: :cascade do |t|

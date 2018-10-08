@@ -52,7 +52,35 @@ class User < ApplicationRecord
   end
 
   def info
+    return Info.find_by(nickname: self.nickname)
+  end
+
+  def tra
     return Trading.find_by(nickname: self.nickname)
+  end
+
+  def mon
+    return Money.find_by(nickname: self.nickname)
+  end
+  
+  def shi
+    return Shipment.find_by(nickname: self.nickname)
+  end
+
+  def pac
+    return Packing.find_by(nickname: self.nickname)
+  end
+
+  def mea
+    return Mean.find_by(nickname: self.nickname)
+  end
+
+  def act
+    return Activation.find_by(nickname: self.nickname)
+  end
+
+  def con
+    return Contact.find_by(nickname: self.nickname)
   end
 
 

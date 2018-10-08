@@ -25,7 +25,41 @@
 			<% else %>
 					<div class="content">
 						<ul class="reviewContent">
-							<li class="profileContentItem"><h3>取引の種類</h3><p><%= @info.val1 %>&emsp;<%= @info.val2 %>&emsp;<%= @info.val3 %>&emsp;<%= @info.val4 %></p></li>
+							<li class="profileContentItem"><h3>主に取引をしている作品・ジャンル</h3><p><%= simple_format(@info.genre) %></p></li>
+							
+
+							<li class="profileContentItem"><h3>現在の取引状況</h3>
+								<p><%= @act.val1 %>&emsp;<%= @act.val2 %>&emsp;<%= @act.val3 %>&emsp;<%= @act.val4 %>&emsp;<%= @act.val5 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>取引の種類</h3>
+								<p><%= @tra.val1 %>&emsp;<%= @tra.val2 %>&emsp;<%= @tra.val3 %>&emsp;<%= @tra.val4 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>取引の方法</h3>
+								<p><%= @mea.val1 %>&emsp;<%= @mea.val2 %>&emsp;<%= @mea.val3 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>連絡</h3>
+								<p><%= @con.val1 %>&emsp;<%= @con.val2 %>&emsp;<%= @con.val3 %>&emsp;<%= @con.val4 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>発送・手渡し</h3>
+							    <p><%= @shi.val1 %>&emsp;<%= @shi.val2 %>&emsp;<%= @shi.val3 %>&emsp;<%= @shi.val4 %>&emsp;<%= @shi.val5 %>&emsp;<%= @shi.val6 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>梱包</h3>
+								<p><%= @pac.val1 %>&emsp;<%= @pac.val2 %>&emsp;<%= @pac.val3 %>&emsp;<%= @pac.val4 %>&emsp;<%= @pac.val5 %>&emsp;<%= @pac.val6 %></li>
+							
+
+							<li class="profileContentItem"><h3>金銭のやり取り</h3>
+								<p><%= @mon.val1 %>&emsp;<%= @mon.val2 %>&emsp;<%= @mon.val3 %>&emsp;<%= @mon.val4 %>&emsp;<%= @mon.val5 %>&emsp;<%= @mon.val6 %>&emsp;<%= @mon.val7 %>&emsp;<%= @mon.val8 %></p></li>
+							
+
+							<li class="profileContentItem"><h3>過去の取引実績</h3><p><%= @info.history %></p></li>
+							
+
+							<li class="profileContentItem"><h3>フリースペース</h3><p><%= simple_format(@info.other) %></p></li>
 						</ul>
 					</div>
 			<% end %>
