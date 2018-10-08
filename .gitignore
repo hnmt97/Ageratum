@@ -34,5 +34,4 @@
 .env
 
 #does not use
-/db/migrate/20181008001525_change_data_type_for_info.rb
-/db/migrate/20181008003122_change_data_type_to_array.rb
+
