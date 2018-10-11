@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   $messagenumber = 0
 
-  $news = "10月9日より～　β版公開！β版公開を記念して、アゲラタムスコア倍増キャンペーン中。\n※正式版の公開は11月上旬の予定です。"
+  $news = "10月11日より～　β版公開！β版公開を記念して、アゲラタムスコア倍増キャンペーン中。\n※正式版の公開は11月上旬の予定です。"
 
   def set_current_user
 		@current_user = User.find_by(nickname: session[:current_user])
