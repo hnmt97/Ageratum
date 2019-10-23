@@ -2,4 +2,5 @@
 
 【アゲラタム取引信用チェッカー】
 Twitterベースのトレーディンググッズ交換を快適にするためのWebサービス。
-※現在は、管理・運営に割ける時間を作れないため、非公開になっております。
+URL:https://ageratum-reliability-checker.herokuapp.com
+※現在、停止中。
