@@ -14,11 +14,6 @@
     <meta property="og:description" content="あなたに快適なお取引を・・・　アゲラタムで楽しいお取引ライフをはじめよう！">
     <meta property="og:image" content="/ageratum_icon.jpg"> 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ageratum891003">
-	<meta name="twitter:creator" content="@black_black445">
-	<meta name="twitter:title" content="アゲラタム取引信用チェッカー">
-	<meta name="twitter:description" content="あなたに快適なお取引を・・・　アゲラタムで楽しいお取引ライフをはじめよう！">
-	<meta name="twitter:image" content="/ageratum_icon.jpg">
    
     
     <%= csrf_meta_tags %>
@@ -56,7 +51,7 @@
     </header>
 
 
-    <!-- SearchFrom 要改良 -->
+    <!-- SearchFrom 改良の余地あり -->
     <div class="searchForm">
       <%= form_tag("/search", method: :get) do %>
         <div class="introduction searchInstruction">どなたをお探しですか？ユーザーIDで検索してみましょう。<br><span style="font-size: 13px">※ユーザーIDはTwitterのIDと同じです。＠マークを抜いて入力してください。</span></div>
@@ -73,7 +68,7 @@
     <% end %>
 
 
-    <!-- Twitterシェア　要改良 -->
+    <!-- Twitterシェア　改良の余地あり -->
     <% if flash[:shareMessage] %>
       <div class="messageShow">
         <% case $messagenumber %>
@@ -114,8 +109,6 @@
             <li><%= link_to("アゲラタムの使い方", "/howtouse") %></li>
             <li><%= link_to("利用規約", "/termsofservice") %></li>
             <li><%= link_to("プライバシーポリシー", "/privacypolicy") %></li>
-            <li><a href="https://twitter.com/ageratum891003">公式Twitter</a></li>
-            <!-- お問い合わせフォーム　検討中 -->
             <li><%= link_to("お問い合わせ", "/contact") %></li>
           </ul>
         </div>
