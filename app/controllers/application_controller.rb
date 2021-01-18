@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
 		if @current_user == nil
-			flash[:notice] = "ログインが必要です。"
+			#flash[:notice] = "ログインが必要です。"
+			flash[:notice] = "現在メンテナンス中です。ご迷惑おかけしております。"
 			redirect_to("/")
 		end
 	end
