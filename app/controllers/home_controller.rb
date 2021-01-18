@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def howtouse
   end
 
-  def howtouse
+  def login
   end
   
   def privacypolicy
@@ -16,6 +16,5 @@ class HomeController < ApplicationController
 
   def contact
   end
-
 
 end
